@@ -1,0 +1,84 @@
+{
+    "name": "thbappy7706/laravel-steadfast-courier",
+    "description": "A modern, fully typed Laravel 13 integration for the SteadFast Courier API.",
+    "keywords": [
+        "steadfast",
+        "courier",
+        "delivery",
+        "laravel",
+        "bangladesh"
+    ],
+    "homepage": "https://github.com/thbappy7706/laravel-steadfast-courier",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/thbappy7706/laravel-steadfast-courier/issues",
+        "source": "https://github.com/thbappy7706/laravel-steadfast-courier"
+    },
+    "authors": [
+        {
+            "name": "Tanvir Hossen Bappy",
+            "email": "tanvirbappy7706@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "illuminate/contracts": "^13.0",
+        "illuminate/http": "^13.0",
+        "illuminate/support": "^13.0",
+        "spatie/laravel-package-tools": "^1.93"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.13",
+        "laravel/pint": "^1.32",
+        "orchestra/testbench": "^11.3",
+        "pestphp/pest": "^4.7",
+        "pestphp/pest-plugin-arch": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Thbappy7706\\SteadFastCourier\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Thbappy7706\\SteadFastCourier\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@prepare"
+        ],
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse --memory-limit=1G",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint",
+        "format:check": "vendor/bin/pint --test",
+        "ci": [
+            "@format:check",
+            "@analyse",
+            "@test"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Thbappy7706\\SteadFastCourier\\SteadFastCourierServiceProvider"
+            ],
+            "aliases": {
+                "SteadFastCourier": "Thbappy7706\\SteadFastCourier\\Facades\\SteadFastCourier"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
