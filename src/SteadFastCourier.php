@@ -25,7 +25,7 @@ use Throwable;
 
 final readonly class SteadFastCourier implements SteadFastClient
 {
-    private const BULK_CREATE_ENDPOINT = '/create_order/bulk-create';
+    private const string BULK_CREATE_ENDPOINT = '/create_order/bulk-create';
 
     public function __construct(
         private SteadFastConfig $config,
